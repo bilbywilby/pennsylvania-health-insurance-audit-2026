@@ -25,7 +25,7 @@ Run from the repository root. Scripts live in bootstrap/ and use repo-relative p
 
     bash tests/fixtures/run_fixtures.sh       # pipeline against SYNTHETIC fixtures
     python3 scripts/generate_figures.py       # renders docs/figures/*.svg
-    python3 -m unittest discover tests -v     # 31 tests
+    python3 -m pytest tests/ -q            # 64 tests
 
 Output reports land in data/private/ (gitignored). Figures render to docs/figures/
 with provenance watermarks.
