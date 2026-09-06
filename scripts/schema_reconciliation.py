@@ -173,10 +173,15 @@ def load_filings_from_csv(csv_path) -> List[Dict[str, Any]]:
             })
             if rating_area not in rec["rating_areas"]:
                 rec["rating_areas"].append(rating_area)
-            rec["rate_by_area"][rating_area] = rate_change
-            rec["lives_by_area"][rating_area] = covered
+            # lives accumulate; store weighted numerator (rate x lives) per area
+            rec["rate_by_area"][rating_area] = rec["rate_by_area"].get(rating_area, 0.0) + rate_change * covered
+            rec["lives_by_area"][rating_area] = rec["lives_by_area"].get(rating_area, 0.0) + covered
             if not verified:
                 rec["verified"] = False
+    for rec in filings_map.values():
+        total_lives = sum(rec["lives_by_area"].values())
+        if total_lives > 0:
+            rec["rate_change"] = round(sum(rec["rate_by_area"].values()) / total_lives, 2)
     return validate_filings(list(filings_map.values()))
 
 def compute_rating_area_exposure(filings: List[Dict[str, Any]]) -> Dict[int, Dict[str, Any]]:
