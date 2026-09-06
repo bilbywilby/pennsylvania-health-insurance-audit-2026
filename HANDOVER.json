@@ -1,48 +1,30 @@
 {
-  "project": {
-    "name": "pennsylvania-health-insurance-audit-2026",
-    "purpose": "Audits PA ACA rate filings: validates carrier rates against a 67-county PA crosswalk (rating areas 1-9), aggregates weighted rates by rating area, ingests county terminations, exports anomaly logs.",
-    "status": "Bootstrap complete, 31/31 tests passing; synthetic fixture chain verified; awaiting real PID data",
-    "python": "3.x stdlib only, no third-party dependencies",
-    "date": "2026-09-06"
+  "project": "pennsylvania-health-insurance-audit-2026",
+  "handover_date": "2026-09-06",
+  "phase": "BOOTSTRAP_COMPLETE",
+  "status": "AWAITING_EXTERNAL_DATA",
+  "test_suite": {"command": "python3 -m pytest tests/ -q", "passing": 64, "failing": 0},
+  "contract": {
+    "required_columns": ["carrier", "rate_change", "rating_area"],
+    "optional_columns": ["covered_lives", "serff_id", "verified"],
+    "column_aliases": {"carrier_name": "carrier", "approved_rate_change": "rate_change"},
+    "behavior": "Missing covered_lives -> unweighted_fallback (logged). Legacy rows without serff_id get deterministic SYNT- prefixed synthesized IDs. Duplicate (carrier, serff_id) and cross-carrier SERFF collisions raise."
   },
-  "repo": {
-    "remote": "https://github.com/bilbywilby/pennsylvania-health-insurance-audit-2026.git",
-    "branch": "main",
-    "commits": "Conventional Commits enforced via commit-msg hook",
-    "privacy": "data/private/ gitignored (reports only); no PII paths in pipeline"
-  },
-  "pipeline_order": {
-    "00_run_all.sh": "Orchestrator, runs NN_*.py in order, halts on failure",
-    "01_directories.py": "Idempotent scaffolding + .gitignore (protects data/private/)",
-    "02_crosswalk.py": "Generates data/public/pa_county_fips_crosswalk.json (67 counties, FIPS, areas 1-9), validated, atomic write",
-    "03_validate_csvs.py": "Structural validation of approved_rates_2026.csv (county, rate, age, plan_type) and crosswalk",
-    "04_audit.py": "Core audit: crosswalk match, FIPS check, rate sanitization, optional weighting, per-area aggregates + anomaly log. run_audit() import-safe, raises AuditSchemaError.",
-    "05_ingest_carrier_extensions.py": "Carrier filings + terminations: rating-area validation, covered-lives weighting, termination aggregation. Negative rate changes valid."
-  },
-  "tooling": {
-    "figures": "scripts/generate_figures.py - pure-stdlib SVG renderer for data/private/ aggregates into docs/figures/",
-    "fixtures": "tests/fixtures/ - SYNTHETIC, watermarked; full demo via: bash tests/fixtures/run_fixtures.sh && python3 scripts/generate_figures.py"
-  },
-  "inputs_pending": [
-    "data/approved_rates_2026.csv (county,rate,age,plan_type[,weight])",
-    "data/carrier-rate-changes.csv (carrier_name,approved_rate_change,rating_area[,covered_lives])",
-    "data/county-termination-rates.csv (county,termination_count[,total_enrollees])"
+  "pipeline": [
+    {"steps": "01-05", "runner": "bootstrap/00_run_all.sh"},
+    {"step": "06", "entry": "scripts/06_write_county_exposure.py", "output": "data/private/county_rate_exposure.csv"}
   ],
-  "testing": {
-    "command": "python3 -m unittest discover tests -v",
-    "status": "31/31 passing at handover",
-    "fixtures": "tests/fixtures/ - SYNTHETIC, watermarked, dev onboarding only"
+  "next_event": {
+    "trigger": "PID covered-lives extract dropped at data/carrier-rate-changes.csv",
+    "acceptance": "step 06 logs basis: covered_lives",
+    "checklist": "docs/REAL_DATA_ARRIVAL_CHECKLIST.md",
+    "rollback": "quarantine to data/private/, never delete"
   },
-  "design_notes": [
-    "Pipeline functions raise typed exceptions; only main() wrappers sys.exit.",
-    "Negative approved_rate_change valid in carrier ingestor, invalid as absolute premium in 04_audit - intentional.",
-    "Anomalies excluded from aggregates but preserved verbatim in logs.",
-    "Figures carry source watermarks distinguishing synthetic fixture data from real PID data."
+  "known_data_defects": [
+    "SERFF INAC-134505843 assigned to both Keystone East and Central (collision raised by design; Central's true ID unverified)",
+    "SERFF IDs CABC-134505011, CECO-134506033, GSHP-134496810, UPMC-134504084, UPMC-134504074 unverified against full PID table",
+    "UPMC rating-area footprint [1,4,5] needs PID confirmation",
+    "All market shares are placeholders until the extract arrives"
   ],
-  "open_work": [
-    "Real PID 2026 extracts; reconcile carrier-level filings vs county-level audit schema",
-    "README polish and docs/ expansion",
-    "Optional GitHub Actions CI"
-  ]
+  "optional_followup": "Promote validate_filings/normalize_crosswalk to shared bootstrap/crosswalk_lib.py"
 }

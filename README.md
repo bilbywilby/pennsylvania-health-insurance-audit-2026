@@ -5,7 +5,7 @@ submitted rates against an authoritative 67-county / FIPS / rating-area crosswal
 computes weighted-average rates per rating area, ingests county-level termination
 telemetry, and exports structured anomaly logs and aggregate reports.
 
-**Status: bootstrap complete — 31/31 integration tests passing. Awaiting real PID
+**Status: bootstrap complete — 64/64 integration tests passing. Awaiting real PID
 data extracts. All example data in the repo is synthetic and watermarked.**
 
 ## Pipeline
