@@ -123,11 +123,11 @@ def validate_filings(entries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             raise FilingValidationError(f"Filing at index {idx} missing 'carrier'/'serff_id': {item!r}")
         if not SERFF_REGEX.match(serff_id):
             raise FilingValidationError(f"Malformed SERFF ID '{serff_id}' for '{carrier}'.")
-        if serff_id in seen:
-            if seen[serff_id] != carrier:
-                raise FilingValidationError(f"SERFF ID collision: '{serff_id}' assigned to both '{seen[serff_id]}' and '{carrier}'.")
+        if serff_id in seen_serff:
+            if seen_serff[serff_id] != carrier:
+                raise FilingValidationError(f"SERFF ID collision: '{serff_id}' assigned to both '{seen_serff[serff_id]}' and '{carrier}'.")
             raise FilingValidationError(f"Duplicate filing for ('{carrier}', '{serff_id}') at index {idx}.")
-        seen[serff_id] = carrier
+        seen_serff[serff_id] = carrier
         clean = dict(item)
         clean["carrier"], clean["serff_id"] = carrier, serff_id
         ras = clean.get("rating_areas", [])
