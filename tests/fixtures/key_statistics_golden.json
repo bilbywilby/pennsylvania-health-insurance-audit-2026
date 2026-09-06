@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "source_document": "Pennsylvania_Health_Insurance_August_2026_Status_Report.pdf",
+    "section": "Key Statistics",
+    "rule": "Every numeric field in /metrics/summary must equal a row here. New API numbers require a new golden row WITH a citation, or CI fails."
+  },
+  "golden": {
+    "peak_enrollment_2025": { "value": 497000, "citation": "~497,000 — PHIEA (2026a)" },
+    "enrollment_july_1_2026": { "value": 431270, "citation": "431,270 — PHIEA (2026a)" },
+    "cumulative_coverage_lost_since_oe2026_start": { "value": 177000, "citation": "177,000+ — PHIEA (2026a)" },
+    "post_oe_cancellations_feb_to_jul_2026": { "value": 94000, "citation": "94,000 — PHIEA (2026a)" },
+    "avg_net_premium_increase_retained_enrollees_pct": { "value": 102, "citation": "102% — PHIEA (2026a)" },
+    "statewide_approved_gross_rate_increase_pct": { "value": 21.5, "citation": "21.5% — PID (2026a)" },
+    "requested_increases_denied_by_pid_usd": { "value": 50100000, "citation": "$50.1M — PID (2026a)" },
+    "federal_eptc_value_lost_annual_usd": { "value": 600000000, "citation": "~$600M — PHIEA (2026a)" },
+    "act54_appropriated_usd": { "value": 0, "citation": "$0 as of May 2026 — ForHealthInsurance.com (2026)" }
+  }
+}
