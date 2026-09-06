@@ -1,0 +1,288 @@
+{
+  "1": [
+    {
+      "county": "Clarion",
+      "fips": "42031"
+    },
+    {
+      "county": "Crawford",
+      "fips": "42039"
+    },
+    {
+      "county": "Erie",
+      "fips": "42049"
+    },
+    {
+      "county": "Forest",
+      "fips": "42053"
+    },
+    {
+      "county": "McKean",
+      "fips": "42083"
+    },
+    {
+      "county": "Mercer",
+      "fips": "42085"
+    },
+    {
+      "county": "Venango",
+      "fips": "42121"
+    },
+    {
+      "county": "Warren",
+      "fips": "42123"
+    }
+  ],
+  "2": [
+    {
+      "county": "Cameron",
+      "fips": "42023"
+    },
+    {
+      "county": "Elk",
+      "fips": "42047"
+    },
+    {
+      "county": "Potter",
+      "fips": "42105"
+    }
+  ],
+  "3": [
+    {
+      "county": "Bradford",
+      "fips": "42015"
+    },
+    {
+      "county": "Carbon",
+      "fips": "42025"
+    },
+    {
+      "county": "Clinton",
+      "fips": "42035"
+    },
+    {
+      "county": "Lackawanna",
+      "fips": "42069"
+    },
+    {
+      "county": "Luzerne",
+      "fips": "42079"
+    },
+    {
+      "county": "Lycoming",
+      "fips": "42081"
+    },
+    {
+      "county": "Monroe",
+      "fips": "42089"
+    },
+    {
+      "county": "Pike",
+      "fips": "42103"
+    },
+    {
+      "county": "Sullivan",
+      "fips": "42113"
+    },
+    {
+      "county": "Susquehanna",
+      "fips": "42115"
+    },
+    {
+      "county": "Tioga",
+      "fips": "42117"
+    },
+    {
+      "county": "Wayne",
+      "fips": "42127"
+    },
+    {
+      "county": "Wyoming",
+      "fips": "42131"
+    }
+  ],
+  "4": [
+    {
+      "county": "Allegheny",
+      "fips": "42003"
+    },
+    {
+      "county": "Armstrong",
+      "fips": "42005"
+    },
+    {
+      "county": "Beaver",
+      "fips": "42007"
+    },
+    {
+      "county": "Butler",
+      "fips": "42019"
+    },
+    {
+      "county": "Fayette",
+      "fips": "42051"
+    },
+    {
+      "county": "Greene",
+      "fips": "42059"
+    },
+    {
+      "county": "Indiana",
+      "fips": "42063"
+    },
+    {
+      "county": "Lawrence",
+      "fips": "42073"
+    },
+    {
+      "county": "Washington",
+      "fips": "42125"
+    },
+    {
+      "county": "Westmoreland",
+      "fips": "42129"
+    }
+  ],
+  "5": [
+    {
+      "county": "Bedford",
+      "fips": "42009"
+    },
+    {
+      "county": "Blair",
+      "fips": "42013"
+    },
+    {
+      "county": "Cambria",
+      "fips": "42021"
+    },
+    {
+      "county": "Clearfield",
+      "fips": "42033"
+    },
+    {
+      "county": "Huntingdon",
+      "fips": "42061"
+    },
+    {
+      "county": "Jefferson",
+      "fips": "42065"
+    },
+    {
+      "county": "Somerset",
+      "fips": "42111"
+    }
+  ],
+  "6": [
+    {
+      "county": "Centre",
+      "fips": "42027"
+    },
+    {
+      "county": "Columbia",
+      "fips": "42037"
+    },
+    {
+      "county": "Lehigh",
+      "fips": "42077"
+    },
+    {
+      "county": "Mifflin",
+      "fips": "42087"
+    },
+    {
+      "county": "Montour",
+      "fips": "42093"
+    },
+    {
+      "county": "Northampton",
+      "fips": "42095"
+    },
+    {
+      "county": "Northumberland",
+      "fips": "42097"
+    },
+    {
+      "county": "Schuylkill",
+      "fips": "42107"
+    },
+    {
+      "county": "Snyder",
+      "fips": "42109"
+    },
+    {
+      "county": "Union",
+      "fips": "42119"
+    }
+  ],
+  "7": [
+    {
+      "county": "Adams",
+      "fips": "42001"
+    },
+    {
+      "county": "Berks",
+      "fips": "42011"
+    },
+    {
+      "county": "Lancaster",
+      "fips": "42071"
+    },
+    {
+      "county": "York",
+      "fips": "42133"
+    }
+  ],
+  "8": [
+    {
+      "county": "Bucks",
+      "fips": "42017"
+    },
+    {
+      "county": "Chester",
+      "fips": "42029"
+    },
+    {
+      "county": "Delaware",
+      "fips": "42045"
+    },
+    {
+      "county": "Montgomery",
+      "fips": "42091"
+    },
+    {
+      "county": "Philadelphia",
+      "fips": "42101"
+    }
+  ],
+  "9": [
+    {
+      "county": "Cumberland",
+      "fips": "42041"
+    },
+    {
+      "county": "Dauphin",
+      "fips": "42043"
+    },
+    {
+      "county": "Franklin",
+      "fips": "42055"
+    },
+    {
+      "county": "Fulton",
+      "fips": "42057"
+    },
+    {
+      "county": "Juniata",
+      "fips": "42067"
+    },
+    {
+      "county": "Lebanon",
+      "fips": "42075"
+    },
+    {
+      "county": "Perry",
+      "fips": "42099"
+    }
+  ]
+}
