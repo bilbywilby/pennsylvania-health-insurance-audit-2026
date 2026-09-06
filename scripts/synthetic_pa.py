@@ -5,20 +5,20 @@ Generates a deterministic 67-county / 9-area crosswalk and synthetic filings
 whose weighted exposures are known analytically. The pipeline must reproduce
 the construction numbers exactly — any drift is a regression.
 
-Pure stdlib. Deterministic under seed.
+Pure stdlib. Deterministic under seed. Synthetic FIPS are 42901-42967 (legal
+42-prefix, disjoint from the real 67). Synthetic SERFF IDs are SYNA-prefixed
+and crc32-derived, so they satisfy SERFF_REGEX deterministically.
 """
 import random
+import zlib
 from fractions import Fraction
-from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
 AREA_COUNTS = {1: 8, 2: 3, 3: 13, 4: 10, 5: 7, 6: 10, 7: 4, 8: 5, 9: 7}
 N_AREAS = 9
-N_COUNTIES = 67  # invariant: sum(AREA_COUNTS.values()) == 67
+N_COUNTIES = 67
 assert sum(AREA_COUNTS.values()) == N_COUNTIES
 
-# Synthetic carriers: footprint, rate per area, lives per area.
-# Lives are multiples of 100 so weighted means are exact in Fraction arithmetic.
 CARRIERS: List[Dict[str, Any]] = [
     {"carrier": "SYN-A", "areas": list(range(1, 10)),
      "rates": {a: 20.0 + a for a in range(1, 10)},
@@ -35,13 +35,13 @@ CARRIERS: List[Dict[str, Any]] = [
 ]
 
 def synthetic_filings() -> List[Dict[str, Any]]:
-    """Flatten CARRIERS into one filing record per (carrier, area)."""
+    """Flatten CARRIERS into one filing record per (carrier, area). Deterministic."""
     out: List[Dict[str, Any]] = []
     for c in CARRIERS:
         for area in c["areas"]:
             out.append({
                 "carrier": c["carrier"],
-                "serff_id": f"SYN%-{abs(hash((c['carrier'], area))) % 10**9:09d}",
+                "serff_id": "SYNA-%09d" % (zlib.crc32(f"{c['carrier']}:{area}".encode()) % 10**9),
                 "rate_change": c["rates"][area],
                 "rating_area": area,
                 "lives_by_area": {area: c["lives"][area]},
@@ -63,9 +63,9 @@ def ground_truth_exposure() -> Dict[int, Fraction]:
     return truth
 
 def synthetic_crosswalk(seed: int = 42) -> Tuple[List[Dict[str, Any]], Dict[str, int]]:
-    """Deterministic fake PA: 67 counties, FIPS 900xx (never collides with real '42xxx')."""
+    """Deterministic fake PA: 67 counties, FIPS 42901-42967 (never collides with real counties)."""
     rng = random.Random(seed)
-    fips_pool = [f"90{i:03d}" for i in range(1, 68)]
+    fips_pool = [f"42{900 + i:03d}" for i in range(1, 68)]
     rng.shuffle(fips_pool)
     entries, fips_to_area = [], {}
     idx = 0

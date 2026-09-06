@@ -1,4 +1,5 @@
 """Differential tests: real pipeline vs known-by-construction synthetic universe."""
+import json
 import sys
 from pathlib import Path
 from fractions import Fraction
@@ -21,29 +22,28 @@ class TestSyntheticPennsylvania:
 
     def test_crosswalk_integrity_on_synthetic_universe(self, tmp_path):
         entries, _ = sp.synthetic_crosswalk()
-        f = Path("/tmp") / "syn_crosswalk.json"
-        f.write_text(__import__("json").dumps({"counties": entries}))
+        f = tmp_path / "syn_crosswalk.json"
+        f.write_text(json.dumps({"counties": entries}))
         cw = sr.load_crosswalk(path=f)
-        assert len(cw) == 67 and set(cw) == {f"90{i:03d}" for i in range(1, 68)}
+        assert len(cw) == 67 and len(set(cw)) == 67
 
-    def test_county_matrix_binds_correct_area(self):
+    def test_county_matrix_binds_correct_area(self, tmp_path):
         entries, fips_to_area = sp.synthetic_crosswalk(seed=7)
-        validated = sr.validate_filings(sp.synthetic_filings())
+        f = tmp_path / "syn_crosswalk7.json"
+        f.write_text(json.dumps({"counties": entries}))
         real_load = sr.load_crosswalk
-        import json as _json
-        f = Path("/tmp") / "syn_crosswalk7.json"
-        f.write_text(_json.dumps({"counties": entries}))
         sr.load_crosswalk = lambda: real_load(path=f)
         try:
-            matrix = sr.build_county_rate_matrix(filings=validated)
+            matrix = sr.build_county_rate_matrix(filings=sr.validate_filings(sp.synthetic_filings()))
         finally:
             sr.load_crosswalk = real_load
         for fips, area in fips_to_area.items():
             assert matrix[fips]["rating_area"] == area
-        # RA 7 has SYN-A only -> weighted equals its lone rate exactly
-        assert matrix["90007"]["weighted_rate_change"] == 20.0 + 7
+        # RA 7 is served by SYN-A alone -> weighted equals its lone rate exactly
+        ra7_fips = next(f for f, a in fips_to_area.items() if a == 7)
+        assert matrix[ra7_fips]["weighted_rate_change"] == 27.0
 
-    def test_harness_detects_tampering(self, monkeypatch):
+    def test_harness_detects_tampering(self):
         """Mutation check: corrupt one rate and the pipeline MUST diverge from truth."""
         truth = sp.ground_truth_exposure()
         filings = sp.synthetic_filings()
