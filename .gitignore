@@ -8,3 +8,6 @@ data/private/*
 *.pyc
 *.pyo
 *.log
+.venv/
+.venv_logs/
+__pycache__/
