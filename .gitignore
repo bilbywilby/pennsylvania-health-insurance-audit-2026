@@ -1,0 +1,10 @@
+.env
+__pycache__/
+.pytest_cache/
+data/private/*
+!data/private/.gitignore
+*.age
+*.age.asc
+*.pyc
+*.pyo
+*.log
