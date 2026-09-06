@@ -1,0 +1,5 @@
+county,termination_count,total_enrollees,source_note
+Allegheny,1450,48200,SYNTHETIC FIXTURE - not real PID data
+Erie,310,12400,SYNTHETIC FIXTURE - not real PID data
+Cameron,12,890,SYNTHETIC FIXTURE - not real PID data
+Nowhereville,55,600,deliberate anomaly row (unknown county)

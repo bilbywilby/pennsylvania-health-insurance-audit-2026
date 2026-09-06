@@ -1,0 +1,11 @@
+carrier_name,approved_rate_change,rating_area,covered_lives,source_note
+Highmark Inc.,17.7%,4,31000,SYNTHETIC FIXTURE - not real PID data
+UPMC Health Plan,8.2%,4,27500,SYNTHETIC FIXTURE - not real PID data
+Geisinger Health Plan,11.6%,4,5400,SYNTHETIC FIXTURE - not real PID data
+Oscar Health,-5.2%,1,3200,legitimate decrease case
+Highmark Inc.,14.5%,1,18700,SYNTHETIC FIXTURE - not real PID data
+Keystone Health Plan East,22.0%,8,41000,SYNTHETIC FIXTURE - not real PID data
+Independence Blue Cross,19.4%,8,52000,SYNTHETIC FIXTURE - not real PID data
+Ambetter Health of PA,37.8%,4,9800,SYNTHETIC FIXTURE - not real PID data
+Highmark Inc.,10.0%,99,500,deliberate anomaly row (area 99 not in crosswalk)
+QwikCare Mutual,bad-value,4,100,deliberate anomaly row (unparseable rate)

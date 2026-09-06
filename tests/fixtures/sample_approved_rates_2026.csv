@@ -1,0 +1,14 @@
+county,rate,age,plan_type,weight,source_note
+Allegheny,412.50,30,Platinum,1200,SYNTHETIC FIXTURE - not real PID data
+Allegheny,"$389.00",27,Gold,450,SYNTHETIC FIXTURE - not real PID data
+Allegheny,301.75,40,Silver,880,SYNTHETIC FIXTURE - not real PID data
+Allegheny,255.4,21,Bronze,2100,SYNTHETIC FIXTURE - not real PID data
+Allegheny,not-a-number,35,Silver,0,deliberate anomaly row
+Cameron,598.20,45,Platinum,35,SYNTHETIC FIXTURE - not real PID data
+Cameron,522.9,38,Gold,60,SYNTHETIC FIXTURE - not real PID data
+Cameron,,29,Bronze,0,deliberate anomaly row (empty rate)
+Erie,344.10,33,Silver,640,SYNTHETIC FIXTURE - not real PID data
+Erie,298.45,26,Bronze,910,SYNTHETIC FIXTURE - not real PID data
+Erie,445.00,52,Platinum,175,SYNTHETIC FIXTURE - not real PID data
+Erie,"2,150.00",64,Platinum,60,embedded comma sanitization case
+UNKNOWNVILLE,199.99,40,Silver,0,deliberate anomaly row (unknown county)
