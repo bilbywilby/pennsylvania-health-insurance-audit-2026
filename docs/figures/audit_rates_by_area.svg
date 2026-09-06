@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="254" viewBox="0 0 760 254" font-family="sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="220" y="34" font-size="20" font-weight="bold" fill="#333">Weighted Avg Monthly Rate by Rating Area</text>
+<text x="220" y="58" font-size="12" fill="#666">Highest: Area 2 at $550.64</text>
+<text x="210" y="113.12" font-size="13" fill="#333" text-anchor="end">Area 2</text>
+<rect x="220.0" y="90" width="400.0" height="34" fill="#6d4aff" rx="3"/>
+<text x="628.0" y="113" font-size="13" fill="#333" text-anchor="start">$550.64</text>
+<text x="210" y="161.12" font-size="13" fill="#333" text-anchor="end">Area 1</text>
+<rect x="220.0" y="138" width="284.3" height="34" fill="#6d4aff" rx="3"/>
+<text x="512.3" y="161" font-size="13" fill="#333" text-anchor="start">$391.42</text>
+<text x="210" y="209.12" font-size="13" fill="#333" text-anchor="end">Area 4</text>
+<rect x="220.0" y="186" width="230.9" height="34" fill="#6d4aff" rx="3"/>
+<text x="458.9" y="209" font-size="13" fill="#333" text-anchor="start">$317.91</text>
+<text x="220" y="246" font-size="11" fill="#999">SOURCE: data/private/audit_aggregates_2026.csv - synthetic fixtures unless real data loaded.</text>
+</svg>
