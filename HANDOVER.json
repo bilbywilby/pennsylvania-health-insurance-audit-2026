@@ -56,5 +56,15 @@
       "quarantined_file": "tests/quarantine_test_golden_metrics.py.txt",
       "resolution": "src/api/main.py implemented, serving data/public/key_statistics_2026.json; verified against pennie.com/affordability/ for Act 54 block"
     }
-  ]
+  ],
+  "provenance": {
+    "status": "digest_helper_added_not_enforced",
+    "module": "src/provenance.py",
+    "open_items": [
+      "compute_digest() added but not yet wired to a validator \u2014 enforcement is NOT active",
+      "no tests/test_provenance.py yet \u2014 do not claim tested until real API (class fields, exceptions) is confirmed from the file above",
+      "statutes gate / staleness behavior unverified \u2014 same rule applies",
+      "digest is tamper-evidence only, unsigned \u2014 Ed25519 signing is a future step if authenticity is required"
+    ]
+  }
 }
