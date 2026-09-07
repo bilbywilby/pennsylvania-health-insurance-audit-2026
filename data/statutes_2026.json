@@ -1,0 +1,38 @@
+{
+  "verified": {
+    "hb_2562_2563_2564": {
+      "finding": "Real ACA-codification package. House passed Oct 9 2024: HB2562 160-42, HB2563 163-39, HB2564 174-28. Referred to Senate Banking & Insurance Oct 18 2024. NO further Senate action, no Act number as of latest official page generation.",
+      "status": "house_passed_not_enacted",
+      "source_urls": [
+        "https://www.palegis.us/legislation/bills/2023/hb2562",
+        "https://www.palegis.us/legislation/bills/2023/hb2564",
+        "https://www.cityandstatepa.com/policy/2024/10/pa-house-approves-bills-would-codify-affordable-care-act-protections-state-law/400172/"
+      ],
+      "last_verified": "2026-09-07"
+    }
+  },
+  "not_found_as_of": {
+    "act_252_2023": {
+      "finding": "No Act 252 of 2023 in official PA law-information records. Only 'Act No. 252 of 1923' exists (unrelated, printing appropriations).",
+      "checked_via": "https://www.palegis.us/statutes/unconsolidated/law-information",
+      "last_verified": "2026-09-07"
+    },
+    "sec_28_725": {
+      "finding": "Not found in any PA code title. Title 28 Pa. Code is Health & Safety (managed care orgs), not insurance; actual PA insurance law is Title 40 P.S. and Title 31 Pa. Code.",
+      "checked_via": "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/40/40.HTM ; https://regulations.justia.com/states/pennsylvania/title-28/part-i/chapter-9/subchapter-k",
+      "last_verified": "2026-09-07"
+    },
+    "sec_29_8719": {
+      "finding": "Not found in any PA code title. Title 29 is not a PA insurance title.",
+      "checked_via": "web search, PA code cross-reference",
+      "last_verified": "2026-09-07"
+    }
+  },
+  "misattributed": {
+    "sb_1071": {
+      "finding": "SB 1071 (2025-2026 session) is real but amends Titles 18/53 (police conduct, 'No Secret Police: Unmask ICE'); unrelated to health insurance.",
+      "source_url": "https://www.palegis.us/legislation/bills/2025/sb1071",
+      "last_verified": "2026-09-07"
+    }
+  }
+}

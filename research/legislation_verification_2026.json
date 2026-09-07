@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "purpose": "Independent verification pass on flagged citations, run 2026-09-07. All findings backed by direct web_fetch/web_search of official sources, not inference.",
+    "framing_note": "Per project standard: absence of a citation in official sources is recorded as 'not found as of <date>', not 'does not exist' -- a claim can be unverifiable without being disproven."
+  },
+  "findings": [
+    {
+      "citation": "SB 1071 (2024)",
+      "status": "misattributed",
+      "detail": "SB 1071 exists only in the 2025-2026 session; amends Titles 18/53 (police conduct), not health insurance. Likely candidates for what was intended: SB 50 and SB 1195 (2025-2026), both health-insurance-related -- NOT independently verified this pass, flag for next check.",
+      "source_url": "https://www.palegis.us/legislation/bills/2025/sb1071"
+    },
+    {
+      "citation": "Act 252-2023",
+      "status": "not_found_as_of_2026-09-07",
+      "source_url": "https://www.palegis.us/statutes/unconsolidated/law-information?sessYr=2023&sessInd=0&actNum=25"
+    },
+    {
+      "citation": "HB 2562, HB 2563, HB 2564",
+      "status": "house_passed_not_enacted",
+      "detail": "Passed PA House Oct 9 2024 (160-42, 163-39, 174-28). Referred to Senate Banking & Insurance Oct 18 2024. No further recorded Senate action or Act number.",
+      "source_urls": [
+        "https://www.palegis.us/legislation/bills/2023/hb2562",
+        "https://www.palegis.us/legislation/bills/2023/hb2564",
+        "https://www.cityandstatepa.com/policy/2024/10/pa-house-approves-bills-would-codify-affordable-care-act-protections-state-law/400172/"
+      ]
+    },
+    {
+      "citation": "§28-725",
+      "status": "not_found_as_of_2026-09-07",
+      "detail": "Title 28 Pa. Code governs Health & Safety, not insurance. Real PA insurance code is Title 40 P.S. / Title 31 Pa. Code.",
+      "source_url": "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/40/40.HTM"
+    },
+    {
+      "citation": "§29-8719",
+      "status": "not_found_as_of_2026-09-07",
+      "detail": "Title 29 is not a PA insurance code title; no matching section found anywhere."
+    }
+  ]
+}
