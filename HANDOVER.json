@@ -52,8 +52,9 @@
   "open_items": [
     {
       "item": "Build src/api/main.py (FastAPI app) required by test_golden_metrics.py",
-      "status": "quarantined_pending_implementation",
-      "quarantined_file": "tests/quarantine_test_golden_metrics.py.txt"
+      "status": "resolved",
+      "quarantined_file": "tests/quarantine_test_golden_metrics.py.txt",
+      "resolution": "src/api/main.py implemented, serving data/public/key_statistics_2026.json; verified against pennie.com/affordability/ for Act 54 block"
     }
   ]
 }
